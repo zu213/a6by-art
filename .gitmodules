@@ -1,0 +1,3 @@
+[submodule "submodules/apple-interface"]
+	path = submodules/apple-interface
+	url = https://github.com/zu213/fruit-lips

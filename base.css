@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --ink: #1a1a18;
+    --surface: #f7f6f3;
+    --line: #d8d6cf;
+}
+
+body {
+    background-color: var(--surface);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 clamp(1.5rem, 5vw, 6rem);
+    max-width: 1300px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* ── Header ── */
+.site-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding: 2rem 0 1.2rem;
+    flex-shrink: 0;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--ink);
+}
+
+.site-header .links {
+    font-size: 1rem;
+    letter-spacing: 0.18em;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+
+    span {
+        cursor: pointer;
+    }
+
+    span:hover, a:hover {
+        text-decoration: underline;
+    }
+
+    a {
+        color: var(--ink);
+        text-decoration: none;
+    }
+}
+
+/* ── Content area ── */
+.content {
+    flex: 1;
+    min-height: 0;
+}
+
+.content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* ── Main layout ── */
+.container {
+    position: relative;
+    width: 60%;
+    left: 20%;
+}
+
+.images {
+    width: 32vw;
+    height: 32vh;
+    left: 53%;
+    transform: translate(calc(-50% - 20px), 0);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 900px) {
+    .images {
+        width: 70vw;
+        left: 58%;
+    }
+}
+
+.mouth-image {
+    z-index: 0;
+    scale: 3;
+}
+
+@media only screen and (max-width: 600px) {
+    .mouth-image {
+        scale: 2.4;
+    }
+}
+
+.highlighted {
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ── Form ── */
+.text-form {
+    padding: 10px;
+}
+
+.text-form label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+}
+
+.input-row {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--ink);
+}
+
+.input-row input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.85rem 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+}
+
+.input-row input::placeholder {
+    color: var(--ink);
+    font-style: italic;
+}
+
+.input-row button {
+    background: transparent;
+    border: none;
+    border-left: 1px solid var(--ink);
+    padding: 0.85rem 1.4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-row button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-row button:hover::before {
+    transform: translateY(0);
+}
+
+.input-row button:hover {
+    color: var(--surface);
+}
+
+.input-row button:active {
+    transform: scale(0.98);
+}
+
+.input-row button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Output ── */
+.output {
+    padding: 10px;
+    line-height: 1.5em;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    min-height: 3rem;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    justify-content: center-start;
+    margin-bottom: 1.5rem;
+}
+
+.output .inline-syllable {
+    display: inline-block;
+    outline: none;
+}
+
+.output .embold {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/* ── Board ── */
+.board {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    padding-bottom: 6rem;
+}
+
+.board h2 {
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
+}
+
+.board-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.board-item {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s ease;
+}
+
+.board-item:hover {
+    text-decoration: underline;
+}
+
+.board-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--ink);
+    margin-right: 0.6rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* ── About ── */
+.about-mask {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(15, 15, 15, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about {
+    padding: 2rem;
+    border-radius: 5px;
+    background: var(--surface);
+    max-width: 640px;
+    width: 90%;
+    position: relative;
+    font-size: small;
+    z-index: 11;
+    max-height: 50%;
+    overflow: scroll;
+
+    p {
+        margin: 0.5rem 0;
+    }
+}
+
+.about h2 {
+    margin-bottom: 0.5rem;
+}
+
+.about-mask.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.about-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1.1rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--ink);
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.about-close:hover {
+    opacity: 1;
+}
+
+/* ── Hamburger ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    order: -1;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    transition: opacity 0.2s;
+}
+
+/* ── Sidebar ── */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 15, 15, 0.4);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 250ms ease;
+}
+
+.nav-overlay.open {
+    opacity: 1;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 240px;
+    background: var(--surface);
+    border-right: 1px solid var(--line);
+    z-index: 21;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 1.6rem;
+    transform: translateX(-100%);
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar span, .sidebar a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+    color: var(--ink);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar span:hover, .sidebar a:hover {
+    text-decoration: underline;
+}
+
+.sidebar-close {
+    position: absolute;
+    top: 0.75rem;
+    left: 1.1rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--ink);
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.sidebar-close:hover {
+    opacity: 1;
+}
+
+/* ── Responsive ── */
+@media only screen and (max-width: 760px) {
+    .site-header .links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .site-header h1 {
+        flex: 1;
+        text-align: center;
+    }
+
+    .nav-overlay {
+        display: block;
+        pointer-events: none;
+    }
+
+    .nav-overlay.open {
+        pointer-events: auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        left: 5%;
+        display: block;
+    }
+    form input {
+        margin: 5px;
+        width: 90%;
+    }
+}

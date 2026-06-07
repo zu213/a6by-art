@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>A6by Colwell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="base.css">
+    <script src="./index.js"></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <h1>A6by Colwell</h1>
+        <span class="links">
+            <span id="home-link">Home</span>&nbsp;|&nbsp;
+            <span id="gallery-link">Gallery</span>&nbsp;|&nbsp;
+            <span id="apple-interface-link">Apple Interface</span>&nbsp;|&nbsp;
+            <a href="https://www.instagram.com/a6byart/" target="_blank">@a6byart</a>
+        </span>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <button class="sidebar-close" id="sidebar-close">&times;</button>
+        <span id="home-link-mob">Home</span>
+        <span id="gallery-link-mob">Gallery</span>
+        <span id="apple-interface-link-mob">Apple Interface</span>
+        <a href="https://www.instagram.com/a6byart/" target="_blank">@a6byart</a>
+    </nav>
+
+    <div class="content"></div>
+
+</body>
+</html>
+
+
+<template id="home">
+    <h2>Welcome to Abby Art!</h2>
+    <p>Abby Art is a collection of digital art pieces created by Abby. Explore the gallery and enjoy the creativity!</p>
+</template>
+
+<template id="gallery">
+    <h2>Gallery</h2>
+    <p>Here are some of Abby's art pieces:</p>
+    <ul>
+        <li><a href="https://www.instagram.com/p/ExamplePost1/" target="_blank">Art Piece 1</a></li>
+        <li><a href="https://www.instagram.com/p/ExamplePost2/" target="_blank">Art Piece 2</a></li>
+        <li><a href="https://www.instagram.com/p/ExamplePost3/" target="_blank">Art Piece 3</a></li>
+    </ul>
+</template>
+
+<template id="apple-interface">
+    <iframe src="./submodules/apple-interface/src3/fruit-lips-lite.html"></iframe>
+</template>
