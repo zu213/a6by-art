@@ -1,3 +1,5 @@
+import { createGallery } from "./gallery.js"
+
 addEventListener("DOMContentLoaded", function () {
     const content = document.querySelector(".content")
     const sidebar = document.getElementById("sidebar")
@@ -25,13 +27,21 @@ addEventListener("DOMContentLoaded", function () {
         closeSidebar()
     }
 
+    function loadGallery() {
+        loadTemplate("gallery")
+        createGallery()
+    }
+
     document.getElementById("home-link").addEventListener("click", () => loadTemplate("home"))
-    document.getElementById("gallery-link").addEventListener("click", () => loadTemplate("gallery"))
+    document.getElementById("gallery-link").addEventListener("click", () => loadGallery())
     document.getElementById("apple-interface-link").addEventListener("click", () => loadTemplate("apple-interface"))
 
     document.getElementById("home-link-mob").addEventListener("click", () => loadTemplate("home"))
-    document.getElementById("gallery-link-mob").addEventListener("click", () => loadTemplate("gallery"))
+    document.getElementById("gallery-link-mob").addEventListener("click", () => loadGallery())
     document.getElementById("apple-interface-link-mob").addEventListener("click", () => loadTemplate("apple-interface"))
 
     loadTemplate("home")
+
+    //createGallery()
+
 })

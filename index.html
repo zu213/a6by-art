@@ -4,7 +4,8 @@
     <title>A6by Colwell</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="base.css">
-    <script src="./index.js"></script>
+    <script src="./index.js" type="module"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
 </head>
 
 <body>
@@ -44,12 +45,7 @@
 
 <template id="gallery">
     <h2>Gallery</h2>
-    <p>Here are some of Abby's art pieces:</p>
-    <ul>
-        <li><a href="https://www.instagram.com/p/ExamplePost1/" target="_blank">Art Piece 1</a></li>
-        <li><a href="https://www.instagram.com/p/ExamplePost2/" target="_blank">Art Piece 2</a></li>
-        <li><a href="https://www.instagram.com/p/ExamplePost3/" target="_blank">Art Piece 3</a></li>
-    </ul>
+    <div class="gallery-content"></div>
 </template>
 
 <template id="apple-interface">
