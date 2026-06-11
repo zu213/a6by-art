@@ -1,37 +1,33 @@
 const images = [
+  'https://www.instagram.com/reel/DS5QI9qjRYW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+  'https://www.instagram.com/p/C8XoZ1GI5XT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
   'https://www.instagram.com/reel/DX4MPvzNBnO/?utm_source=ig_embed&amp;utm_campaign=loading',
-  'https://www.instagram.com/reel/DX4MPvzNBnO/?utm_source=ig_embed&amp;utm_campaign=loading',
-  'https://www.instagram.com/reel/DX4MPvzNBnO/?utm_source=ig_embed&amp;utm_campaign=loading',
+  'https://www.instagram.com/reel/DVorbSTDa9E/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+  'https://www.instagram.com/p/DVmRGBhjY32/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
 ]
 
 export function createGallery() {
-
   const galleryImages = document.createElement('div')
   galleryImages.classList.add('gallery-image-container')
 
-  images.forEach((src, index) => {
-    galleryImages.appendChild(createGalleryItem(src, `Title ${index + 1}`))
+  images.forEach((src) => {
+    galleryImages.appendChild(createGalleryItem(src))
   })
-  
-  document.querySelector(".gallery-content").appendChild(galleryImages);
+
+  document.querySelector(".gallery-content").appendChild(galleryImages)
 
   if (window.instgrm) {
     window.instgrm.Embeds.process();
-    setTimeout(() => {
-  window.instgrm?.Embeds?.process();
-}, 100);
   }
-
-
 }
 
-function createGalleryItem(src, title) {
+function createGalleryItem(src) {
   const item = document.createElement('div')
   item.classList.add('gallery-item')
 
   const blockquote = document.createElement('blockquote')
   blockquote.classList.add('instagram-media')
-  blockquote.setAttribute('data-instgrm-captioned', '')
+  // no data-instgrm-captioned — omitting it removes the caption footer
   blockquote.setAttribute('data-instgrm-permalink', src)
   blockquote.setAttribute('data-instgrm-version', '14')
 
@@ -40,11 +36,13 @@ function createGalleryItem(src, title) {
   a.target = "_blank"
   blockquote.appendChild(a)
 
-    setTimeout(() => {
-  console.log(blockquote.outerHTML);
-}, 1000);
-
   item.appendChild(blockquote)
+
+  const title = document.createElement('div')
+  title.classList.add('gallery-item-title')
+  title.textContent = 'View on Instagram'
+  item.appendChild(title)
+
   return item
 }
 
