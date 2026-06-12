@@ -1,17 +1,17 @@
 const images = [
-  'https://www.instagram.com/reel/DS5QI9qjRYW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-  'https://www.instagram.com/p/C8XoZ1GI5XT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-  'https://www.instagram.com/reel/DX4MPvzNBnO/?utm_source=ig_embed&amp;utm_campaign=loading',
-  'https://www.instagram.com/reel/DVorbSTDa9E/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-  'https://www.instagram.com/p/DVmRGBhjY32/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
+  {title: 'Reel 1', url: 'https://www.instagram.com/reel/DS5QI9qjRYW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Post 1', url: 'https://www.instagram.com/p/C8XoZ1GI5XT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Reel 2', url: 'https://www.instagram.com/reel/DX4MPvzNBnO/?utm_source=ig_embed&amp;utm_campaign=loading'},
+  {title: 'Reel 3', url: 'https://www.instagram.com/reel/DVorbSTDa9E/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Post 2', url: 'https://www.instagram.com/p/DVmRGBhjY32/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='}
 ]
 
 export function createGallery() {
   const galleryImages = document.createElement('div')
   galleryImages.classList.add('gallery-image-container')
 
-  images.forEach((src) => {
-    galleryImages.appendChild(createGalleryItem(src))
+  images.forEach((post) => {
+    galleryImages.appendChild(createGalleryItem(post))
   })
 
   document.querySelector(".gallery-content").appendChild(galleryImages)
@@ -21,18 +21,18 @@ export function createGallery() {
   }
 }
 
-function createGalleryItem(src) {
+function createGalleryItem(post) {
   const item = document.createElement('div')
   item.classList.add('gallery-item')
 
   const blockquote = document.createElement('blockquote')
   blockquote.classList.add('instagram-media')
   // no data-instgrm-captioned — omitting it removes the caption footer
-  blockquote.setAttribute('data-instgrm-permalink', src)
+  blockquote.setAttribute('data-instgrm-permalink', post.url)
   blockquote.setAttribute('data-instgrm-version', '14')
 
   const a = document.createElement('a')
-  a.href = src
+  a.href = post.url
   a.target = "_blank"
   blockquote.appendChild(a)
 
@@ -40,7 +40,7 @@ function createGalleryItem(src) {
 
   const title = document.createElement('div')
   title.classList.add('gallery-item-title')
-  title.textContent = 'View on Instagram'
+  title.textContent = post.title
   item.appendChild(title)
 
   return item
