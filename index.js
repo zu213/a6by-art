@@ -32,15 +32,13 @@ addEventListener("DOMContentLoaded", function () {
         createGallery()
     }
 
-    document.getElementById("home-link").addEventListener("click", () => loadTemplate("home"))
     document.getElementById("gallery-link").addEventListener("click", () => loadGallery())
     document.getElementById("apple-interface-link").addEventListener("click", () => loadTemplate("apple-interface"))
 
-    document.getElementById("home-link-mob").addEventListener("click", () => loadTemplate("home"))
     document.getElementById("gallery-link-mob").addEventListener("click", () => loadGallery())
     document.getElementById("apple-interface-link-mob").addEventListener("click", () => loadTemplate("apple-interface"))
 
-    loadTemplate("home")
+    loadTemplate("gallery")
 
     //createGallery()
 

@@ -1,9 +1,5 @@
 const images = [
-  {title: 'Reel 1', url: 'https://www.instagram.com/reel/DS5QI9qjRYW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
-  {title: 'Post 1', url: 'https://www.instagram.com/p/C8XoZ1GI5XT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
-  {title: 'Reel 2', url: 'https://www.instagram.com/reel/DX4MPvzNBnO/?utm_source=ig_embed&amp;utm_campaign=loading'},
-  {title: 'Reel 3', url: 'https://www.instagram.com/reel/DVorbSTDa9E/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
-  {title: 'Post 2', url: 'https://www.instagram.com/p/DVmRGBhjY32/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='}
+  {title: 'Familiar Faces, 2024', url: 'https://www.instagram.com/p/C8XoZ1GI5XT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
 ]
 
 export function createGallery() {
