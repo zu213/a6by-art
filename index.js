@@ -38,7 +38,7 @@ addEventListener("DOMContentLoaded", function () {
     document.getElementById("gallery-link-mob").addEventListener("click", () => loadGallery())
     document.getElementById("apple-interface-link-mob").addEventListener("click", () => loadTemplate("apple-interface"))
 
-    loadTemplate("gallery")
+    loadGallery()
 
     //createGallery()
 
