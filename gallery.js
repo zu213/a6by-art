@@ -1,5 +1,17 @@
 const images = [
   {title: 'Familiar Faces, 2024', url: 'https://www.instagram.com/p/C8XoZ1GI5XT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Familiar Faces, 2024', url: 'https://www.instagram.com/p/C6ra3EPI5R6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Familiar Faces, 2024', url: 'https://www.instagram.com/p/C6jDCTnIksm/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', customAspect: '7 / 6'},
+  {title: 'Apple Interface WIP, 2026', url: 'https://www.instagram.com/reel/Da5N4x6NYXf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Coronation Street Lamp, 2024', url: 'https://www.instagram.com/p/DPJd79jguR6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Wood turned Final Piece, 2025', url: 'https://www.instagram.com/p/DTVuJUNjbMP/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Seeing Chair, 2024', url: 'https://www.instagram.com/p/C6jDIRbInQR/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Seeing Chair, 2024', url: 'https://www.instagram.com/p/C6i_yTAITOs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Dance animation - Visual Feast Film Festival, 2022', url: 'https://www.instagram.com/p/Cc3cunPIbDa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', customAspect: '6 / 7'},
+  {title: 'Dance, 2022', url: 'https://www.instagram.com/p/CfRft9eIELu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', customAspect: '7 / 6'},
+  {title: 'Dance, 2022', url: 'https://www.instagram.com/p/C2aVGZvoWqV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='},
+  {title: 'Dance, 2021', url: 'https://www.instagram.com/p/CdG39ChoHGX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', customAspect: '6 / 7'},
+  {title: 'Movement, 2021', url: 'https://www.instagram.com/p/CO0kuC6BwTg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', customAspect: '6 / 7'}
 ]
 
 export function createGallery() {
@@ -20,6 +32,10 @@ export function createGallery() {
 function createGalleryItem(post) {
   const item = document.createElement('div')
   item.classList.add('gallery-item')
+
+  if(post.customAspect) {
+    item.style.aspectRatio = post.customAspect
+  }
 
   const blockquote = document.createElement('blockquote')
   blockquote.classList.add('instagram-media')
